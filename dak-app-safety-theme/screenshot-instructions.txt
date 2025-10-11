@@ -1,0 +1,8 @@
+This is a placeholder for screenshot.png
+
+To create a proper screenshot:
+1. Take a screenshot of your theme's homepage at 1200x900 pixels
+2. Save it as "screenshot.png" in the theme folder
+3. This will be displayed in WordPress admin under Appearance > Themes
+
+The screenshot should show what the theme looks like when activated.
