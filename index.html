@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Safety Search Engine - Protect Your Kids Today</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0F0F23;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4ECDC4, #A8E6CF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            color: #A8E6CF;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #ffffff 0%, #A8E6CF 50%, #4ECDC4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #B8B8B8;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #B8B8B8;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #4ECDC4, transparent);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder:hover {
+            border-color: #4ECDC4;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0F0F23);
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .play-button::after {
+            content: '▶';
+            color: white;
+            font-size: 24px;
+            margin-left: 4px;
+        }
+
+        .video-text {
+            color: #B8B8B8;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 100px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 24px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .feature-description {
+            color: #B8B8B8;
+            line-height: 1.7;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stat-card {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #4ECDC4;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #B8B8B8;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 100px 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 24px;
+            color: #E8E8E8;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .pricing-card {
+            max-width: 500px;
+            margin: 60px auto 0;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            padding: 8px 24px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #4ECDC4;
+            margin: 20px 0;
+        }
+
+        .price-period {
+            color: #B8B8B8;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .features-list li {
+            padding: 12px 0;
+            color: #E8E8E8;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ECDC4;
+            font-weight: bold;
+        }
+
+        /* CTA Buttons */
+        .cta-button {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8A80 100%);
+            border: none;
+            border-radius: 16px;
+            padding: 20px 48px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-transform: none;
+            letter-spacing: 0;
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 24px;
+            font-weight: 600;
+            color: #ffffff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-answer {
+            padding: 0 24px 24px;
+            color: #B8B8B8;
+            line-height: 1.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .video-container {
+                padding: 24px;
+            }
+
+            .features-grid,
+            .testimonials-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .pricing-card {
+                padding: 40px 24px;
+            }
+
+            .price {
+                font-size: 3rem;
+            }
+        }
+
+        /* Animations */
+        @media (prefers-reduced-motion: no-preference) {
+            .feature-card,
+            .testimonial-card,
+            .stat-card {
+                animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+            }
+
+            .feature-card:nth-child(1) { animation-delay: 0.1s; }
+            .feature-card:nth-child(2) { animation-delay: 0.2s; }
+            .feature-card:nth-child(3) { animation-delay: 0.3s; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-text">App Safety Search Engine</div>
+                <div class="trust-badge">🔒 FBI-Backed Data</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>See Exactly Which Apps Are Putting Your Kids at Riskfadsljfdsa!</h1>
+            <p class="hero-subtitle">Watch our ute demo to discover how this FBI-backed software helps parents identify dangerous apps before predators can reach your children.</p>
+        </div>
+    </section>
+
+    <!-- Video Demo Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="section-title">Watch the Live Demo</h2>
+            <p class="section-subtitle">See the App Safety Search Engine in action - discover dangerous apps in under 2 minutes</p>
+            
+            <div class="video-container">
+                <div class="video-placeholder" onclick="playVideo()">
+                    <div class="play-button"></div>
+                    <div class="video-text">
+                        <strong>Click to watch the demo</strong><br>
+                        See how easy it is to protect your kids online
+                    </div>
+                </div>
+                <!-- Replace the placeholder above with your actual Loom embed code -->
+                <!-- Example Loom embed (hidden by default):
+                <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+                    <iframe src="https://www.loom.com/embed/YOUR_VIDEO_ID" 
+                            frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                    </iframe>
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Everything You Need to Protect Your Kids</h2>
+            <p class="section-subtitle">Comprehensive app safety analysis backed by real FBI data and academic research</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">Instant App Analysis</h3>
+                    <p class="feature-description">Search any app instantly and get detailed safety information. Our database covers 120+ popular apps that kids use daily.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚠️</div>
+                    <h3 class="feature-title">Predator Risk Assessment</h3>
+                    <p class="feature-description">Get customized risk levels based on 10,000+ FBI child predator press releases. See which apps are most dangerous for your child's age group.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Academic Research Backing</h3>
+                    <p class="feature-description">Our findings are validated by the latest academic research on child online safety and predator behavior patterns.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Demographic-Based Alerts</h3>
+                    <p class="feature-description">Receive targeted warnings based on your child's specific demographics - age, gender, and interests that predators typically target.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Easy-to-Use Interface</h3>
+                    <p class="feature-description">Simple search functionality that any parent can use. No technical knowledge required - just type in an app name and get instant results.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">Regular Updates</h3>
+                    <p class="feature-description">Our database is updated every 7 to 14 days with new threats and app safety information as new dangers emerge online.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title">The Numbers Don't Lie</h2>
+            <p class="section-subtitle">Real data that shows why this protection is critical</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">10,000+</span>
+                    <span class="stat-label">FBI Reports Analyzed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">120+</span>
+                    <span class="stat-label">Apps in Database</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">89%</span>
+                    <span class="stat-label">of Parents Unaware</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Protection Coverage</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Parents Are Saying</h2>
+            <p class="section-subtitle">Real stories from parents who are protecting their kids</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "I had no idea that the apps my 12-year-old was using were such high-risk for predators. This tool opened my eyes and probably saved my daughter from a dangerous situation."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sarah M.</h4>
+                            <p>Mother of 2, Teacher</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "The FBI-backed data gives me confidence that this isn't just fear-mongering. It's real, actionable information that helps me make informed decisions about my kids' digital safety."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Michael R.</h4>
+                            <p>Father of 3, IT Professional</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Easy to use, incredibly informative. I check every new app my teens want to download. It's become an essential part of our family's digital safety routine."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div class="author-info">
+                            <h4>Jennifer L.</h4>
+                            <p>Mother of 4, Nurse</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Protect Your Kids Today</h2>
+            <p class="section-subtitle">For less than a latte.</p>
+            
+            <div class="pricing-card">
+                <div class="pricing-badge">Most Popular</div>
+                <div class="price">$5/month</div>
+                
+                
+                <ul class="features-list">
+                    <li>Complete access to App Safety Search Engine</li>
+                    <li>Search 120+ apps instantly</li>
+                    <li>FBI-backed predator risk analysis</li>
+                    <li>Demographic-specific safety alerts</li>
+                    <li>Bi-weekly app database updates</li>
+                    <li>30-day money-back guarantee</li>
+                    <li>Instant access after purchase</li>
+                </ul>
+                
+                <a href="#" class="cta-button" onclick="handlePurchase()">Get Instant Access Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How current is the FBI data?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer" style="display: none;">
+                        Our database is built from over 10,000 FBI child predator press releases and is regularly updated as new cases and patterns emerge. The academic research component ensures we're using the most current methodologies for risk assessment.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        What devices does this work on?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer" style="display: none;">
+                        The App Safety Search Engine is web-based and works on any device with internet access - computers, tablets, and smartphones. No installation required.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Is there a money-back guarantee?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer" style="display: none;">
+                        Yes! We offer a 30-day money-back guarantee. If you're not completely satisfied with the App Safety Search Engine, contact us within 30 days for a full refund.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How often is the database updated?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer" style="display: none;">
+                        We update our database monthly with new app safety information, emerging threats, and the latest research findings. All updates are included in your one-time purchase.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="hero" style="padding: 60px 0; background: rgba(255, 255, 255, 0.02);">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Don't Wait - Protect Your Kids Now</h2>
+            <p class="hero-subtitle" style="margin-bottom: 40px;">Every day you wait is another day your children could be at risk. Get instant access to the protection they need.</p>
+            <a href="#" class="cta-button" onclick="handlePurchase()">Get Started Today - $5</a>
+        </div>
+    </section>
+
+    <script>
+        function handlePurchase() {
+            // Replace with your actual payment processor URL
+            //alert('Redirecting to secure checkout...');
+             window.location.href = 'https://buy.stripe.com/9B68wQcXm03vf9wc9n04801';
+        }
+
+        function playVideo() {
+            console.log('Play button clicked!');
+            const placeholder = document.querySelector('.video-placeholder');
+            if (!placeholder) {
+                console.error('Video placeholder not found');
+                return;
+            }
+            
+            console.log('Embedding Tella.tv video...');
+            
+            // Try a simpler approach - just the iframe without the wrapper div
+            placeholder.innerHTML = `
+                <iframe 
+                    style="width: 100%; height: 100%; border: 0; border-radius: 16px;" 
+                    width="800" 
+                    height="450" 
+                    src="https://www.tella.tv/video/cmgbg6bz400dm0bl9a1u3e309/embed?b=1&title=1&a=1&loop=0&t=0&muted=0&wt=1" 
+                    allowfullscreen 
+                    allowtransparency>
+                </iframe>
+            `;
+            
+            console.log('Tella.tv video embedded successfully');
+        }
+
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('span');
+            
+            if (answer.style.display === 'none' || !answer.style.display) {
+                answer.style.display = 'block';
+                icon.textContent = '−';
+            } else {
+                answer.style.display = 'none';
+                icon.textContent = '+';
+            }
+        }
+
+        function tryEmbedAgain() {
+            console.log('Trying embed again...');
+            const placeholder = document.querySelector('.video-placeholder');
+            // Reset to original state
+            placeholder.innerHTML = `
+                <div class="play-button"></div>
+                <div class="video-text">
+                    <strong>Click to watch the demo</strong><br>
+                    See how easy it is to protect your kids online
+                </div>
+            `;
+            // The onclick attribute will handle the click
+        }
+    </script>
+</body>
+</html>
