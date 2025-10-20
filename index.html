@@ -38,7 +38,7 @@
             align-items: center;
         }
 
-        .logo-text {
+        .company-name {
             font-size: 1.5rem;
             font-weight: 700;
             background: linear-gradient(135deg, #4ECDC4, #A8E6CF);
@@ -47,14 +47,25 @@
             background-clip: text;
         }
 
-        .trust-badge {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+        .login-button {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8A80 100%);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 25px;
-            padding: 8px 16px;
+            padding: 10px 20px;
             font-size: 0.9rem;
-            color: #A8E6CF;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .login-button:hover {
+            background: linear-gradient(135deg, #FF8A80 0%, #FF6B6B 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+            color: #ffffff;
+            text-decoration: none;
         }
 
         /* Hero Section */
@@ -176,6 +187,54 @@
             color: #B8B8B8;
             font-size: 1.1rem;
             text-align: center;
+        }
+
+        /* Try App Section */
+        .try-app-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 107, 107, 0.1));
+            text-align: center;
+        }
+
+        .try-app-content h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .try-app-content p {
+            font-size: 1.2rem;
+            color: #B8B8B8;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .try-app-button {
+            background: linear-gradient(135deg, #4ECDC4 0%, #A8E6CF 100%);
+            border: none;
+            border-radius: 16px;
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0F0F23;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 6px 24px rgba(78, 205, 196, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .try-app-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 32px rgba(78, 205, 196, 0.4);
+            background: linear-gradient(135deg, #A8E6CF 0%, #4ECDC4 100%);
+            color: #0F0F23;
+            text-decoration: none;
         }
 
         /* Features Section */
@@ -539,8 +598,8 @@
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo-text">App Safety Search Engine</div>
-                <div class="trust-badge">🔒 FBI-Backed Data</div>
+                <div class="company-name">Defend All Kids LLC</div>
+                <a href="https://app-safety-search-engine.streamlit.app/" class="login-button" target="_blank" rel="noopener noreferrer">Login</a>
             </div>
         </div>
     </header>
@@ -559,22 +618,27 @@
             <p class="section-subtitle">See the App Safety Search Engine in action - discover dangerous apps in under 2 minutes</p>
             
             <div class="video-container">
-                <div class="video-placeholder" onclick="playVideo()">
-                    <div class="play-button"></div>
-                    <div class="video-text">
-                        <strong>Click to watch the demo</strong><br>
-                        See how easy it is to protect your kids online
-                    </div>
-                </div>
-                <!-- Replace the placeholder above with your actual Loom embed code -->
-                <!-- Example Loom embed (hidden by default):
-                <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-                    <iframe src="https://www.loom.com/embed/YOUR_VIDEO_ID" 
-                            frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen 
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                    </iframe>
-                </div>
-                -->
+                <iframe 
+                    style="width: 100%; height: 100%; border: 0; border-radius: 16px;" 
+                    width="800" 
+                    height="450" 
+                    src="https://www.tella.tv/video/cmgbg6bz400dm0bl9a1u3e309/embed?b=1&title=1&a=1&loop=0&t=0&muted=0&wt=1" 
+                    allowfullscreen 
+                    allowtransparency>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Try App Section -->
+    <section class="try-app-section">
+        <div class="container">
+            <div class="try-app-content">
+                <h2>Ready to Protect Your Kids?</h2>
+                <p>Test our App Safety Search Engine right now - no signup required!</p>
+                <a href="https://app-search-engine-demo.streamlit.app/" class="try-app-button" target="_blank" rel="noopener noreferrer">
+                    Try the App for Free!
+                </a>
             </div>
         </div>
     </section>
@@ -787,9 +851,10 @@
 
     <script>
         function handlePurchase() {
-            // Replace with your actual payment processor URL
-            //alert('Redirecting to secure checkout...');
-             window.location.href = 'https://buy.stripe.com/9B68wQcXm03vf9wc9n04801';
+            // Stripe URL with success redirect to Streamlit app
+            const successUrl = encodeURIComponent('https://app-safety-search-engine.streamlit.app/');
+            const purchaseUrl = `https://buy.stripe.com/9B68wQcXm03vf9wc9n04801?success_url=${successUrl}`;
+            window.location.href = purchaseUrl;
         }
 
         function playVideo() {

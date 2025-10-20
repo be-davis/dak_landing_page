@@ -1,7 +1,18 @@
     <script>
         function handlePurchase() {
-            // Get the purchase URL from WordPress customizer or use default
-            <?php $purchase_url = get_theme_mod('purchase_url', 'https://buy.stripe.com/9B68wQcXm03vf9wc9n04801'); ?>
+            // Get the purchase URL from WordPress customizer or use default with success redirect
+            <?php 
+            $base_purchase_url = get_theme_mod('purchase_url', 'https://buy.stripe.com/9B68wQcXm03vf9wc9n04801');
+            $success_url = 'https://app-safety-search-engine.streamlit.app/';
+            
+            // Check if URL already has success_url parameter
+            if (strpos($base_purchase_url, 'success_url=') === false) {
+                $separator = strpos($base_purchase_url, '?') !== false ? '&' : '?';
+                $purchase_url = $base_purchase_url . $separator . 'success_url=' . urlencode($success_url);
+            } else {
+                $purchase_url = $base_purchase_url;
+            }
+            ?>
             window.location.href = '<?php echo esc_url($purchase_url); ?>';
         }
 

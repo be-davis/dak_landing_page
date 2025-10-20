@@ -193,6 +193,54 @@ body {
     text-align: center;
 }
 
+/* Try App Section */
+.try-app-section {
+    padding: 60px 0;
+    background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 107, 107, 0.1));
+    text-align: center;
+}
+
+.try-app-content h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+
+.try-app-content p {
+    font-size: 1.2rem;
+    color: #B8B8B8;
+    margin-bottom: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.try-app-button {
+    background: linear-gradient(135deg, #4ECDC4 0%, #A8E6CF 100%);
+    border: none;
+    border-radius: 16px;
+    padding: 18px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0F0F23;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 6px 24px rgba(78, 205, 196, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.try-app-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(78, 205, 196, 0.4);
+    background: linear-gradient(135deg, #A8E6CF 0%, #4ECDC4 100%);
+    color: #0F0F23;
+    text-decoration: none;
+}
+
 /* Features Section */
 .features-section {
     padding: 100px 0;

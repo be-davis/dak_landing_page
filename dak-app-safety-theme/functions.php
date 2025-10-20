@@ -185,7 +185,7 @@ function dak_app_safety_customize_register($wp_customize) {
     ));
     
     $wp_customize->add_setting('purchase_url', array(
-        'default' => 'https://buy.stripe.com/9B68wQcXm03vf9wc9n04801',
+        'default' => 'https://buy.stripe.com/9B68wQcXm03vf9wc9n04801?success_url=' . urlencode('https://app-safety-search-engine.streamlit.app/'),
         'sanitize_callback' => 'esc_url_raw',
     ));
     
