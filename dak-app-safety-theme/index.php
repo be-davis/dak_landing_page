@@ -32,14 +32,13 @@
         </p>
         
         <div class="video-container">
-            <iframe 
-                style="width: 100%; height: 100%; border: 0; border-radius: 16px;" 
-                width="800" 
-                height="450" 
-                src="<?php echo esc_url(get_theme_mod('video_url', 'https://www.tella.tv/video/cmgbg6bz400dm0bl9a1u3e309/embed?b=1&title=1&a=1&loop=0&t=0&muted=0&wt=1')); ?>" 
-                allowfullscreen 
-                allowtransparency>
-            </iframe>
+            <div class="video-placeholder" onclick="playVideo()">
+                <div class="play-button"></div>
+                <div class="video-text">
+                    <strong>Click to watch the demo</strong><br>
+                    See how easy it is to protect your kids online
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -50,7 +49,7 @@
         <div class="try-app-content">
             <h2>Ready to Protect Your Kids?</h2>
             <p>Test our App Safety Search Engine right now - no signup required!</p>
-            <a href="https://app-search-engine-demo.streamlit.app/" class="try-app-button" target="_blank" rel="noopener noreferrer">
+            <a href="https://app-safety-search-engine.streamlit.app/" class="try-app-button" target="_blank" rel="noopener noreferrer">
                 Try the App for Free!
             </a>
         </div>
@@ -218,6 +217,19 @@
             </ul>
             
             <a href="#" class="cta-button" onclick="handlePurchase()">Get Instant Access Now</a>
+        </div>
+    </div>
+</section>
+
+<!-- Try App Section 2 -->
+<section class="try-app-section">
+    <div class="container">
+        <div class="try-app-content">
+            <h2>Still Not Sure? Try It First!</h2>
+            <p>Experience the power of our App Safety Search Engine before you commit. No credit card required!</p>
+            <a href="https://app-search-engine-demo.streamlit.app/" class="try-app-button" target="_blank" rel="noopener noreferrer">
+                Try the App for Free!
+            </a>
         </div>
     </div>
 </section>
