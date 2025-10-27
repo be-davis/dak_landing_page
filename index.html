@@ -615,7 +615,6 @@
     <section class="video-section">
         <div class="container">
             <h2 class="section-title">Watch the Live Demo</h2>
-            <p class="section-subtitle">See the App Safety Search Engine in action - discover dangerous apps in under 2 minutes</p>
             
             <div class="video-container">
                 <div class="video-placeholder" onclick="playVideo()">
@@ -671,28 +670,11 @@
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3 class="feature-title">Academic Research Backing</h3>
-                    <p class="feature-description">Our findings are validated by the latest academic research on child online safety and predator behavior patterns.</p>
-                </div>
-                
-                <div class="feature-card">
                     <div class="feature-icon">🎯</div>
                     <h3 class="feature-title">Demographic-Based Alerts</h3>
                     <p class="feature-description">Receive targeted warnings based on your child's specific demographics - age, gender, and interests that predators typically target.</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3 class="feature-title">Easy-to-Use Interface</h3>
-                    <p class="feature-description">Simple search functionality that any parent can use. No technical knowledge required - just type in an app name and get instant results.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3 class="feature-title">Regular Updates</h3>
-                    <p class="feature-description">Our database is updated every 7 to 14 days with new threats and app safety information as new dangers emerge online.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -885,8 +867,8 @@
                         </div>
                         <div>
                             <h3 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 8px;">Email Us</h3>
-                            <a href="mailto:brandon@defendallkids.com" style="color: #4ECDC4; font-size: 1.1rem; text-decoration: none; font-weight: 600;">
-                                brandon@defendallkids.com
+                            <a href="mailto:contact@defendallkids.com" style="color: #4ECDC4; font-size: 1.1rem; text-decoration: none; font-weight: 600;">
+                                contact@defendallkids.com
                             </a>
                         </div>
                     </div>
@@ -917,12 +899,13 @@
             console.log('Embedding Tella.tv video...');
             
             // Try a simpler approach - just the iframe without the wrapper div
+            // Added autoplay=1 parameter to make video autoplay
             placeholder.innerHTML = `
                 <iframe 
                     style="width: 100%; height: 100%; border: 0; border-radius: 16px;" 
                     width="800" 
                     height="450" 
-                    src="https://www.tella.tv/video/cmgbg6bz400dm0bl9a1u3e309/embed?b=1&title=1&a=1&loop=0&t=0&muted=0&wt=1" 
+                    src="https://www.tella.tv/video/cmgbg6bz400dm0bl9a1u3e309/embed?b=1&title=1&a=1&loop=0&t=0&muted=0&wt=1&autoplay=1" 
                     allowfullscreen 
                     allowtransparency>
                 </iframe>
@@ -930,6 +913,12 @@
             
             console.log('Tella.tv video embedded successfully');
         }
+
+        // Auto-load video when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, auto-playing video...');
+            playVideo();
+        });
 
         function toggleFAQ(element) {
             const answer = element.nextElementSibling;

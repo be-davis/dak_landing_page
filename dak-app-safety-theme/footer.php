@@ -26,8 +26,8 @@
             
             console.log('Embedding Tella.tv video...');
             
-            // Get video URL from WordPress customizer or use default
-            <?php $video_url = get_theme_mod('video_url', 'https://www.tella.tv/video/cmgbg6bz400dm0bl9a1u3e309/embed?b=1&title=1&a=1&loop=0&t=0&muted=0&wt=1'); ?>
+            // Get video URL from WordPress customizer or use default with autoplay
+            <?php $video_url = get_theme_mod('video_url', 'https://www.tella.tv/video/cmgbg6bz400dm0bl9a1u3e309/embed?b=1&title=1&a=1&loop=0&t=0&muted=0&wt=1&autoplay=1'); ?>
             
             placeholder.innerHTML = `
                 <iframe 
@@ -42,6 +42,12 @@
             
             console.log('Video embedded successfully');
         }
+
+        // Auto-load video when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, auto-playing video...');
+            playVideo();
+        });
 
         function toggleFAQ(element) {
             const answer = element.nextElementSibling;

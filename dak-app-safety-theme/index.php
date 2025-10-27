@@ -23,14 +23,7 @@
                 Watch the Live Demo
             <?php endif; ?>
         </h2>
-        <p class="section-subtitle">
-            <?php if (get_theme_mod('video_section_subtitle')) : ?>
-                <?php echo esc_html(get_theme_mod('video_section_subtitle')); ?>
-            <?php else : ?>
-                See the App Safety Search Engine in action - discover dangerous apps in under 2 minutes
-            <?php endif; ?>
-        </p>
-        
+
         <div class="video-container">
             <div class="video-placeholder" onclick="playVideo()">
                 <div class="play-button"></div>
@@ -49,7 +42,7 @@
         <div class="try-app-content">
             <h2>Ready to Protect Your Kids?</h2>
             <p>Test our App Safety Search Engine right now - no signup required!</p>
-            <a href="https://app-safety-search-engine.streamlit.app/" class="try-app-button" target="_blank" rel="noopener noreferrer">
+            <a href="https://app-search-engine-demo.streamlit.app/" class="try-app-button" target="_blank" rel="noopener noreferrer">
                 Try the App for Free!
             </a>
         </div>
@@ -86,30 +79,13 @@
                 <h3 class="feature-title">Predator Risk Assessment</h3>
                 <p class="feature-description">Get customized risk levels based on 10,000+ FBI child predator press releases. See which apps are most dangerous for your child's age group.</p>
             </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3 class="feature-title">Academic Research Backing</h3>
-                <p class="feature-description">Our findings are validated by the latest academic research on child online safety and predator behavior patterns.</p>
-            </div>
-            
+                       
             <div class="feature-card">
                 <div class="feature-icon">🎯</div>
                 <h3 class="feature-title">Demographic-Based Alerts</h3>
                 <p class="feature-description">Receive targeted warnings based on your child's specific demographics - age, gender, and interests that predators typically target.</p>
             </div>
             
-            <div class="feature-card">
-                <div class="feature-icon">📱</div>
-                <h3 class="feature-title">Easy-to-Use Interface</h3>
-                <p class="feature-description">Simple search functionality that any parent can use. No technical knowledge required - just type in an app name and get instant results.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🔄</div>
-                <h3 class="feature-title">Regular Updates</h3>
-                <p class="feature-description">Our database is updated every 7 to 14 days with new threats and app safety information as new dangers emerge online.</p>
-            </div>
         </div>
     </div>
 </section>
@@ -141,55 +117,6 @@
     </div>
 </section>
 
-<!-- Testimonials Section
-<section class="testimonials-section">
-    <div class="container">
-        <h2 class="section-title">What Parents Are Saying</h2>
-        <p class="section-subtitle">Real stories from parents who are protecting their kids</p>
-        
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    "I had no idea that the apps my 12-year-old was using were such high-risk for predators. This tool opened my eyes and probably saved my daughter from a dangerous situation."
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">S</div>
-                    <div class="author-info">
-                        <h4>Sarah M.</h4>
-                        <p>Mother of 2, Teacher</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    "The FBI-backed data gives me confidence that this isn't just fear-mongering. It's real, actionable information that helps me make informed decisions about my kids' digital safety."
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">M</div>
-                    <div class="author-info">
-                        <h4>Michael R.</h4>
-                        <p>Father of 3, IT Professional</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    "Easy to use, incredibly informative. I check every new app my teens want to download. It's become an essential part of our family's digital safety routine."
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">J</div>
-                    <div class="author-info">
-                        <h4>Jennifer L.</h4>
-                        <p>Mother of 4, Nurse</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
--->
 <!-- Pricing Section -->
 <section class="pricing-section">
     <div class="container">
@@ -313,8 +240,8 @@
                     </div>
                     <div>
                         <h3 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 8px;">Email Us</h3>
-                        <a href="mailto:brandon@defendallkids.com" style="color: #4ECDC4; font-size: 1.1rem; text-decoration: none; font-weight: 600;">
-                            brandon@defendallkids.com
+                        <a href="mailto:contact@defendallkids.com" style="color: #4ECDC4; font-size: 1.1rem; text-decoration: none; font-weight: 600;">
+                            contact@defendallkids.com
                         </a>
                     </div>
                 </div>
